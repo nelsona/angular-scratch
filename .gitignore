@@ -1,4 +1,4 @@
 node_modules
 
 bower_components
-javascripts/app.js
+public/javascripts/app.js
