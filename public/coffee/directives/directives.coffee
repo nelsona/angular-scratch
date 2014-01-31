@@ -43,14 +43,16 @@ class AudioPlayer
 		$scope.audio.addEventListener 'loadedmetadata', () ->
 			label = angular.element(document.getElementById "duration-label")
 			label.html formatSecondsAsTime $scope.audio.duration
+			range = angular.element(document.querySelector "#duration-current-position")
+			range[0].max = $scope.audio.duration
 
 		$scope.audio.addEventListener 'progress', () ->
 			progress = angular.element(document.getElementById "duration-progress")
 			progress[0].value = getCurrentProgressValue($scope.audio)
 
 		$scope.audio.addEventListener 'timeupdate', () ->
-			label = angular.element(document.getElementById "duration-current-position")
-			label.html formatSecondsAsTime $scope.audio.currentTime
+			range = angular.element(document.querySelector "#duration-current-position")
+			range[0].value = $scope.audio.currentTime
 
 		attrs.$observe('audioSrc', (value) ->
 			$scope.audio.src = value)
@@ -58,8 +60,11 @@ class AudioPlayer
 		$scope.playpause = () ->
 			if $scope.audio.paused then $scope.audio.play() else $scope.audio.pause()
 		$scope.changevolume = () ->
-			inputs = element.find("input")
+			inputs = angular.element(document.querySelector "#volume-changer")
 			$scope.audio.volume = inputs[0].value
+		$scope.updateposition = () ->
+			range = angular.element(document.querySelector "#duration-current-position")
+			$scope.audio.currentTime = range[0].value
 
 	@options: () -> 
 		restrict: "A"

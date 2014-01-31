@@ -20,10 +20,9 @@ block content
 		div This is a smaller nav
 
 	script(type="text/ng-template", id="audio-player.tmpl")
-		div
+		div.jumbotron
 			div.form-group
-				label volume: 
-				input(min="0" max="1" step="0.05" type="range" ng-click="changevolume()")
+				input(id="volume-changer" min="0" max="1" step="0.05" type="range" ng-click="changevolume()")
 
 			div.form-group
 				button(class="btn btn-default playpause" ng-click="playpause()" ng-class="{paused:audio.paused}")
@@ -31,12 +30,11 @@ block content
 						i.glyphicon.glyphicon-play
 					span.pause-text pause
 						i.glyphicon.glyphicon-pause
+				span(id="duration-label" style="margin-left: 20px;")
 
 			div.form-group
-				label(id="duration-label")
-			
+				input(id="duration-current-position" min="0" max="" step="0.05" type="range" value="0" ng-click="updateposition()")			
+
 			div.form-group
 				progress(id="duration-progress" value="0" max="100")
 
-			div.form-group
-				label(id="duration-current-position")
