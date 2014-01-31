@@ -34,36 +34,35 @@ class AudioPlayer
 		progressValue
 
 	link = ($scope, element, attrs) ->
-		audio = new Audio()
+		$scope.audio = new Audio()
+		$scope.audio.controls = "controls"
+		$scope.audio.style.width = 0
+		$scope.audio.volume = 0.5
+		$scope.audio.preload = "auto"
 
-		audio.addEventListener 'loadedmetadata', () ->
+		$scope.audio.addEventListener 'loadedmetadata', () ->
 			label = angular.element(document.getElementById "duration-label")
-			label.html formatSecondsAsTime audio.duration
+			label.html formatSecondsAsTime $scope.audio.duration
 
-		audio.addEventListener 'progress', () ->
+		$scope.audio.addEventListener 'progress', () ->
 			progress = angular.element(document.getElementById "duration-progress")
-			progress[0].value = getCurrentProgressValue(audio)
+			progress[0].value = getCurrentProgressValue($scope.audio)
 
-		audio.addEventListener 'timeupdate', () ->
-			label = angular.element(document.getElementById "duration-label")
-			label.html formatSecondsAsTime audio.duration
+		$scope.audio.addEventListener 'timeupdate', () ->
+			label = angular.element(document.getElementById "duration-current-position")
+			label.html formatSecondsAsTime $scope.audio.currentTime
 
-		$scope.audio = audio
 		attrs.$observe('audioSrc', (value) ->
-			audio.src = value
-			audio.controls = "controls"
-			audio.style.width = 0
-			audio.volume = 0.5
-			audio.preload = "auto")
+			$scope.audio.src = value)
 
 		$scope.playpause = () ->
-			if audio.paused then audio.play() else audio.pause()
+			if $scope.audio.paused then $scope.audio.play() else $scope.audio.pause()
 		$scope.changevolume = () ->
 			inputs = element.find("input")
-			audio.volume = inputs[0].value
+			$scope.audio.volume = inputs[0].value
 
 	@options: () -> 
-		restrict: "E"
+		restrict: "A"
 		templateUrl: "audio-player.tmpl"
 		replace: true
 		link: link
