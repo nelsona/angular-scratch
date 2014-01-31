@@ -1,0 +1,11 @@
+{
+  "name": "Angular Testing",
+  "version": "1.0.0",
+  "ignore": [
+    ".jshintrc",
+    "**/*.txt"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "0.10.0"
+  }
+}
