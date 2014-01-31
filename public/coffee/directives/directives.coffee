@@ -27,13 +27,10 @@ class AudioPlayer
 		minutes + ":" + seconds
 
 	getCurrentProgressValue = (audio) ->
-		console.log audio.duration
-		console.log audio.buffered.end(0)
 		if audio.duration == NaN 
 			progressValue = 0
 		else
 			progressValue = (audio.buffered.end(0) / audio.duration) * 100
-		console.log "progress: " + progressValue
 		progressValue
 
 	link = ($scope, element, attrs) ->
@@ -57,8 +54,8 @@ class AudioPlayer
 			audio.controls = "controls"
 			audio.style.width = 0
 			audio.volume = 0.5
-			audio.preload = "auto"
-			element[0].appendChild(audio))
+			audio.preload = "auto")
+
 		$scope.playpause = () ->
 			if audio.paused then audio.play() else audio.pause()
 		$scope.changevolume = () ->
