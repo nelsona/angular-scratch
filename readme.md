@@ -1,5 +1,14 @@
-To install just run npm install
+angular-scratch
+===============
 
-Then change to the public/Javascripts folder and run bower install
+Simple angular site for testing things out
 
-Then you can go back to the root directory and run grunt, this will start the node server and watch the server using nodemon and the coffee files in the public coffee folder
+To run the site you need node installed along with nodemon
+
+Run npm install
+
+Change to the public/javascripts folder and run
+bower init
+
+Change back to the root and run
+grunt
