@@ -1,4 +1,4 @@
-formatSecondsAsTime = (secs) ->
+window.formatSecondsAsTime = (secs) ->
 	hours = Math.floor(secs / 3600)
 	minutes = Math.floor((secs - (hours * 3600)) / 60)
 	seconds = Math.floor(secs - (hours * 3600) - (minutes * 60))
@@ -7,7 +7,7 @@ formatSecondsAsTime = (secs) ->
 
 	minutes + ":" + seconds
 
-getCurrentProgressValue = (audio) ->
+window.getCurrentProgressValue = (audio) ->
 	if audio.duration == NaN 
 		progressValue = 0
 	else
