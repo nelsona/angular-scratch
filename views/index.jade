@@ -26,44 +26,50 @@ block content
 			h2 Audio Directive
 			div.form-group
 				label Volume: 
-				input(id="volume-changer" min="0" max="1" step="0.05" type="range" ng-click="changevolume()")
+				input(id="volume-changer" min="0" max="1" step="0.05" type="range" ng-click="audiochangevolume()")
 
 			div.form-group
-				button(class="btn btn-default playpause" ng-click="playpause()" ng-class="{paused:audio.paused}")
-					span.play-text play
+				button(class="btn btn-default playpause" ng-click="audioplaypause()" ng-class="{paused:audio.paused}")
+					span.play-text
 						i.glyphicon.glyphicon-play
-					span.pause-text pause
+					span.pause-text
 						i.glyphicon.glyphicon-pause
 				label Duration:
 				span(id="duration-label" style="margin-left: 20px;")
 
 			div.form-group
 				label Current position:
-				input(id="duration-current-position" min="0" max="" step="0.05" type="range" value="0" ng-click="updateposition()")
+				input(id="duration-current-position" min="0" max="" step="0.05" type="range" value="0" ng-click="audioupdateposition()")
 
 			div.form-group
 				label Download progress:
 				progress(id="duration-progress" value="0" max="100")
 
 	script(type="text/ng-template", id="video-player.tmpl")
-		div.jumbotron
+		div.jumbotron(id="video-container")
 			h2 Video Directive
+			video(id="video-player")
 			div.form-group
 				label Volume: 
-				input(id="video-volume-changer" min="0" max="1" step="0.05" type="range" ng-click="changevolume()")
+				input(id="video-volume-changer" min="0" max="1" step="0.05" type="range" ng-click="videochangevolume()")
+				button(class="btn btn-default video-mute" ng-click="videomute()" ng-class="{muted:video.muted}")
+					span.muted-text
+						i.glyphicon.glyphicon-volume-off
+					span.unmuted-text
+						i.glyphicon.glyphicon-volume-up
 
 			div.form-group
-				button(class="btn btn-default playpause" ng-click="playpause()" ng-class="{paused:video.paused}")
-					span.play-text play
+				button(class="btn btn-default video-playpause" ng-click="videoplaypause()" ng-class="{paused:video.paused}")
+					span.play-text
 						i.glyphicon.glyphicon-play
-					span.pause-text pause
+					span.pause-text
 						i.glyphicon.glyphicon-pause
 				label Duration:
 				span(id="video-duration-label" style="margin-left: 20px;")
 
 			div.form-group
 				label Current position:
-				input(id="video-duration-current-position" min="0" max="" step="0.05" type="range" value="0" ng-click="updateposition()")
+				input(id="video-duration-current-position" min="0" max="" step="0.05" type="range" value="0" ng-click="videoupdateposition()")
 
 			div.form-group
 				label Download progress:

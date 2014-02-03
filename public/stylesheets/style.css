@@ -1,15 +1,15 @@
-.playpause .play-text {
+.playpause .play-text, .video-playpause .play-text, .video-mute .unmuted-text {
 	display: block;
 }
 
-.playpause.paused .play-text {
+.playpause.paused .play-text, .video-playpause.paused .play-text, .video-mute .muted-text {
 	display: none;
 }
 
-.playpause.paused .pause-text {
+.playpause.paused .pause-text, .video-playpause.paused .pause-text, .video-mute.muted .muted-text {
 	display: block;
 }
 
-.playpause .pause-text {
+.playpause .pause-text, .video-playpause .pause-text, .video-mute.muted .unmuted-text {
 	display: none;
 }
