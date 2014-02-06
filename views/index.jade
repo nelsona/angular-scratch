@@ -5,12 +5,11 @@ block content
 		div.row
 			h1= title
 			p Welcome to #{title}
-			primarynav(navtitle="Primary Nav")
+			div(primarynav navtitle="Primary Nav")
 			div(ng-controller="OtherController")
 				h1 {{ testtitle }}
-			secondarynav(navtitle="A secondary nav")
+			div(secondarynav navtitle="A secondary nav")
 			div(audioplayer audio-src="https://d97i5tfmntrq8.cloudfront.net/81ce49aa-452a-00a6-a3bd-a0d600c536ee/Dannie%20Lu%20Carr%20on%20Assertiveness.mp3" class="audio-container")
-
 			div(videoplayer video-src="https://d97i5tfmntrq8.cloudfront.net/87b62142-cdda-00a7-bb47-9fad00a1f190/An%20Introduction%20to%20Commercial%20Awareness%20v1.0.mp4" class="video-container")
 
 	script(type="text/ng-template", id="primarynav.tmpl")
@@ -44,6 +43,9 @@ block content
 			div.form-group
 				label Download progress:
 				progress(id="duration-progress" value="0" max="100")
+
+	script(type="text/ng-template", id="ie-media.tmpl")
+		div.replaceme
 
 	script(type="text/ng-template", id="video-player.tmpl")
 		div.jumbotron(id="video-container")

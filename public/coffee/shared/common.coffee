@@ -11,6 +11,5 @@ window.getCurrentProgressValue = (media) ->
 	if media.duration == NaN or media.buffered.length == 0
 		progressValue = 0
 	else
-		console.log media.buffered.end(0)
 		progressValue = (media.buffered.end(0) / media.duration) * 100
 	progressValue
