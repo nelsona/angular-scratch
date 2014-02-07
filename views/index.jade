@@ -1,16 +1,17 @@
 extends layout
 
 block content
-	div.container
-		div.row
-			h1= title
-			p Welcome to #{title}
-			div(primarynav navtitle="Primary Nav")
-			div(ng-controller="OtherController")
-				h1 {{ testtitle }}
-			div(secondarynav navtitle="A secondary nav")
-			div(audioplayer audio-src="https://d97i5tfmntrq8.cloudfront.net/81ce49aa-452a-00a6-a3bd-a0d600c536ee/Dannie%20Lu%20Carr%20on%20Assertiveness.mp3" class="audio-container")
-			div(videoplayer video-src="https://d97i5tfmntrq8.cloudfront.net/87b62142-cdda-00a7-bb47-9fad00a1f190/An%20Introduction%20to%20Commercial%20Awareness%20v1.0.mp4" class="video-container")
+	div.row(ui-view)
+
+	script(type="text/ng-template", id="home.tmpl")
+		h1= title
+		p Welcome to #{title}
+		div(primarynav navtitle="Primary Nav")
+		div(ng-controller="OtherController")
+			h1 {{ testtitle }}
+		div(secondarynav navtitle="A secondary nav")
+		div(audioplayer audio-src="https://d97i5tfmntrq8.cloudfront.net/81ce49aa-452a-00a6-a3bd-a0d600c536ee/Dannie%20Lu%20Carr%20on%20Assertiveness.mp3" class="audio-container")
+		div(videoplayer video-src="https://d97i5tfmntrq8.cloudfront.net/87b62142-cdda-00a7-bb47-9fad00a1f190/An%20Introduction%20to%20Commercial%20Awareness%20v1.0.mp4" class="video-container")
 
 	script(type="text/ng-template", id="primarynav.tmpl")
 		h2 {{ navtitle }}
@@ -42,7 +43,9 @@ block content
 
 			div.form-group
 				label Download progress:
-				progress(id="duration-progress" value="0" max="100")
+				div.progress
+					div.progress-bar(style="width: 0%;" id="duration-progress")
+
 
 	script(type="text/ng-template", id="ie-media.tmpl")
 		div.replaceme
@@ -75,4 +78,5 @@ block content
 
 			div.form-group
 				label Download progress:
-				progress(id="video-duration-progress" value="0" max="100")
+				div.progress
+					div.progress-bar(style="width: 0%;" id="video-duration-progress")

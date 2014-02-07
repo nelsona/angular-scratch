@@ -6,7 +6,21 @@ html(ng-app="myApp" id="ng-app")
 		link(rel='stylesheet', href='/stylesheets/style.css')
 		script(src='/javascripts/bower_components/angular/angular.js')
 	body
-		block content
+		div.container
+			h1= title
+			div(primarynav navtitle="Primary Nav")
+			div(ng-controller="OtherController")
+				h1 {{ testtitle }}
+			ul.nav.nav-pills
+				li.active
+					a(href="#/") Home
+				li
+					a(href="#/audio") Audio View
+				li
+					a(href="#/video") Video View
+			block content
 
+		script(src='/javascripts/bower_components/angular/ui-router.js')
 		script(src='/javascripts/bower_components/angular-bootstrap/ui-bootstrap.js')
+		script(src='/javascripts/bower_components/angular-bootstrap/ui-bootstrap-tpls.js')
 		script(src='/javascripts/app.js')

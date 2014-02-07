@@ -2,7 +2,7 @@ module.exports = (grunt) ->
 	grunt.initConfig
 		coffee:
 			compile: 
-				files: {'public/javascripts/app.js': ['public/coffee/app.coffee', 'public/coffee/shared/*.coffee', 'public/coffee/controllers/*.coffee', 'public/coffee/directives/*.coffee']}
+				files: {'public/javascripts/app.js': ['angular/coffee/app.coffee', 'angular/coffee/shared/*.coffee', 'angular/coffee/controllers/*.coffee', 'angular/coffee/directives/*.coffee']}
 
 		nodemon:
 			dev:
@@ -21,7 +21,7 @@ module.exports = (grunt) ->
 
 		watch:
 			coffeescript:
-				files: ['public/coffee/**/*.coffee']
+				files: ['angular/coffee/**/*.coffee']
 				tasks: ['coffee']
 
 	grunt.loadNpmTasks 'grunt-contrib-coffee'
