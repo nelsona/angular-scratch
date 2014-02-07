@@ -85,7 +85,6 @@ angular.module('myApp').directive 'audioplayer', AudioPlayer.options
 class VideoPlayer
 	if window.document.addEventListener
 		progressUpdater = () ->
-			console.log 'called progress'
 			progress = angular.element(document.getElementById "video-duration-progress")
 			progress[0].style.width = window.getCurrentProgressValue(this) + "%"
 
