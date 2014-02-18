@@ -13,13 +13,12 @@ html(ng-app="myApp" id="ng-app")
 				h1 {{ testtitle }}
 			ul.nav.nav-pills
 				li.active
-					a(href="#/") Home
+					a(ui-sref="home") Home
 				li
-					a(href="#/audio") Audio View
+					a(ui-sref="audio") Audio View
 				li
-					a(href="#/video") Video View
+					a(ui-sref="video") Video View
 			block content
-
 		script(src='/javascripts/bower_components/angular/ui-router.js')
 		script(src='/javascripts/bower_components/angular-bootstrap/ui-bootstrap.js')
 		script(src='/javascripts/bower_components/angular-bootstrap/ui-bootstrap-tpls.js')
